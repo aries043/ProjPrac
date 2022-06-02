@@ -22,7 +22,6 @@ excel_source = pd.read_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/resu
 print("Please enter the type of car you want. ex) 1\n"
       "1.SM3 Z.E, 2.레이EV, 3.소울EV, 4.닛산리프, 5.아이오닉EV, 6. BMW i3, 7.스파크EV, 8.볼트EV, 9.테슬라")
 car = input()
-
 if car == "1" :
     str_want_go = "SM3 Z.E"
     int_line = excel_source['지원차종'].str.contains(str_want_go)
@@ -52,3 +51,7 @@ elif car == "9" :
     int_line = excel_source['지원차종'].str.contains(str_want_go)
 want_go_excel = excel_source[int_line]
 want_go_excel.to_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result1.xlsx', sheet_name= 'Result')
+
+dst_lat = 0.0
+dst_lng = 0.0
+dst_lat, dst_lng = findDestination.find()
