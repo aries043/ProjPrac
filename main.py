@@ -57,7 +57,10 @@ dst_lat = 0.0
 dst_lng = 0.0
 dst_lat, dst_lng = findDestination.find()
 
-g_map = g.Map(location=[dst_lat, dst_lng], zoom_start=18)
+g_map = g.Map(location=[dst_lat, dst_lng],
+              zoom_start=100,
+              tiles='http://api.vworld.kr/req/wmts/1.0.0/D05C77C9-AB62-3E70-9183-0E044A461BBD/Base/{z}/{y}/{x}.png',
+              attr = 'VworldBase')
 
 marker_cur = g.Marker([cur_lat, cur_lng],
             popup = 'The starting point',
