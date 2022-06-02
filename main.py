@@ -64,13 +64,10 @@ g_map = g.Map(location=[dst_lat, dst_lng],
 
 marker_cur = g.Marker([cur_lat, cur_lng],
             popup = 'The starting point',
-            icon = g.Icon(color='green'))
+            icon = g.Icon(color='green')).add_to(g_map)
 
 marker_dst = g.Marker([dst_lat, dst_lng],
             popup = 'Destination',
-            icon = g.Icon(color='red'))
-
-marker_cur.add_to(g_map)
-marker_dst.add_to(g_map)
+            icon = g.Icon(color='red')).add_to(g_map)
 
 g_map.save('.destination_map.html')
