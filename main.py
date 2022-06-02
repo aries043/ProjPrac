@@ -59,9 +59,13 @@ dst_lat, dst_lng = findDestination.find()
 
 g_map = g.Map(location=[dst_lat, dst_lng], zoom_start=18)
 
-marker_cur = g.Marker([cur_lat, cur_lng])
+marker_cur = g.Marker([cur_lat, cur_lng],
+            popup = 'The starting point',
+            icon = g.Icon(color='green'))
 
-marker_dst = g.Marker([dst_lat, dst_lng])
+marker_dst = g.Marker([dst_lat, dst_lng],
+            popup = 'Destination',
+            icon = g.Icon(color='red'))
 
 marker_cur.add_to(g_map)
 marker_dst.add_to(g_map)
