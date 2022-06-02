@@ -3,6 +3,7 @@ import returnAddress
 import findCurloc
 import findDestination
 import pandas as pd
+import folium as g
 
 chargingMethod.guide()
 
@@ -55,3 +56,7 @@ want_go_excel.to_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result1.xl
 dst_lat = 0.0
 dst_lng = 0.0
 dst_lat, dst_lng = findDestination.find()
+
+g_map = g.Map(location=[dst_lat, dst_lng], zoom_start=18)
+
+marker_cur = g.Marker([cur_lat, cur_lng])
