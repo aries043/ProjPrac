@@ -17,3 +17,8 @@ want_go_excel.to_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result.xls
 cur_lat = 0.0
 cur_lng = 0.0
 cur_lat, cur_lng = findCurloc.find()
+
+excel_source = pd.read_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result.xlsx', usecols=[1, 2, 3, 4, 5])
+print("Please enter the type of car you want. ex) 1\n"
+      "1.SM3 Z.E, 2.레이EV, 3.소울EV, 4.닛산리프, 5.아이오닉EV, 6. BMW i3, 7.스파크EV, 8.볼트EV, 9.테슬라")
+car = input()
