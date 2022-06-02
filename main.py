@@ -7,19 +7,19 @@ import folium as g
 
 chargingMethod.guide()
 
-excel_source = pd.read_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/전기차-충전소-설치현황_20220316.xlsx', usecols=[1, 2, 3, 4, 5])
+excel_source = pd.read_excel('전기차-충전소-설치현황_20220316.xlsx', usecols=[1, 2, 3, 4, 5])
 print("Please enter the area where you want to find the location of the charging station. ex)청주")
 str_want_go = input()
 
 int_line = excel_source['주소'].str.contains(str_want_go)
 want_go_excel = excel_source[int_line]
-want_go_excel.to_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result.xlsx', sheet_name= 'Result')
+want_go_excel.to_excel('result.xlsx', sheet_name= 'Result')
 
 cur_lat = 0.0
 cur_lng = 0.0
 cur_lat, cur_lng = findCurloc.find()
 
-excel_source = pd.read_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result.xlsx', usecols=[1, 2, 3, 4, 5])
+excel_source = pd.read_excel('result.xlsx', usecols=[1, 2, 3, 4, 5])
 print("Please enter the type of car you want. ex) 1\n"
       "1.SM3 Z.E, 2.레이EV, 3.소울EV, 4.닛산리프, 5.아이오닉EV, 6. BMW i3, 7.스파크EV, 8.볼트EV, 9.테슬라")
 car = input()
@@ -51,7 +51,7 @@ elif car == "9" :
     str_want_go = "테슬라"
     int_line = excel_source['지원차종'].str.contains(str_want_go)
 want_go_excel = excel_source[int_line]
-want_go_excel.to_excel('C:/Users/cksdn/PycharmProjects/OSS_Project_04/result1.xlsx', sheet_name= 'Result')
+want_go_excel.to_excel('result1.xlsx', sheet_name= 'Result')
 
 dst_lat = 0.0
 dst_lng = 0.0
@@ -69,3 +69,5 @@ marker_dst = g.Marker([dst_lat, dst_lng],
 
 marker_cur.add_to(g_map)
 marker_dst.add_to(g_map)
+
+g_map.save('.destination_map.html')
