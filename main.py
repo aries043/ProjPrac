@@ -4,6 +4,8 @@ import findCurloc
 import findDestination
 import pandas as pd
 import folium as g
+import findTheDistanceBetweenCoordinates as Dis
+import chargingStationMarker
 
 chargingMethod.guide()
 
@@ -70,4 +72,13 @@ marker_dst = g.Marker([dst_lat, dst_lng],
             popup = 'Destination',
             icon = g.Icon(color='red')).add_to(g_map)
 
+location = [[cur_lat, cur_lng], 
+            [dst_lat, dst_lng]]
+
+g.PolyLine(locations=location, tooltip='a straight path').add_to(g_map)
+
+chargingStationMarker.chargingStationMarker(g_map)
+
 g_map.save('.destination_map.html')
+
+print(Dis.GeoUtil.get_harversion_distance(cur_lng, cur_lat, dst_lng, dst_lat))
