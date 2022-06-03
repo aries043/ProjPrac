@@ -70,4 +70,9 @@ marker_dst = g.Marker([dst_lat, dst_lng],
             popup = 'Destination',
             icon = g.Icon(color='red')).add_to(g_map)
 
+location = [[cur_lat, cur_lng], #new
+            [dst_lat, dst_lng]] #new
+
+g.PolyLine(locations=location, tooltip='a straight path').add_to(g_map)
+
 g_map.save('.destination_map.html')
