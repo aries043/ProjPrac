@@ -12,3 +12,6 @@ for count in range(excel_source.shape[0]):
         chg_lat, chg_lng = returnAddress.getloc(str(excel_source.loc[count]))
         lat.append(chg_lat)
         lng.append(chg_lng)
+    locations = list(zip(lat, lng))
+    icons = [g.Icon(icon='glyphicon glyphicon-flash',
+                    popup='Charging Station') for _ in range(len(locations))]
